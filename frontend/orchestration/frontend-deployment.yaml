@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-service
+  name: frontend-deployment
 spec:
   selector:
     matchLabels:
-      app: frontend
+      app: frontend-service
   template:
     metadata:
       labels:
-        app: frontend
+        app: frontend-service
     spec:
       containers:
       - name: frontend
@@ -20,3 +20,4 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8080
+        
