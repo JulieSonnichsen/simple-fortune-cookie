@@ -13,11 +13,11 @@ spec:
     spec:
       containers:
       - name: backend
-        image: <Image>
+        image: njako21/fortune-frontend:latest
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
         - containerPort: 6379
-        
+
