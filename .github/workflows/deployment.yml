@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - deployment-config
 
 jobs:
   deploy-and-test:
@@ -12,6 +13,20 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Pull Docker images
+      run: |
+        docker pull njako21/fortune-frontend:latest
+        docker pull njako21/fortune-backend:latest
+
+    - name: Wait for services to start
+      run: sleep 20
 
     - name: Deploy Test
       run: |
@@ -25,7 +40,6 @@ jobs:
         chmod +x test-app.sh
         ./test-app.sh
    
-
-    - name: Cleanup Deployment - Frontend
+    - name: Cleanup Deployment
       run: |
         docker compose down
