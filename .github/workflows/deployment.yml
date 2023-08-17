@@ -15,7 +15,7 @@ jobs:
 
     - name: Deploy Test
       run: |
-        docker-compose up -d
+        docker compose up -d
 
     - name: Wait for services to start
       run: sleep 20
@@ -23,9 +23,9 @@ jobs:
     - name: Test frontend application
       run: |
         chmod +x test-app.sh
-        ./test-app.sh http://localhost:8080/
+        ./test-app.sh
    
 
     - name: Cleanup Deployment - Frontend
       run: |
-        docker-compose down
+        docker compose down
