@@ -30,3 +30,4 @@ jobs:
         cd backend
         docker build -t njako21/fortune-backend:latest -f Dockerfile .
         docker push njako21/fortune-backend:latest
+
