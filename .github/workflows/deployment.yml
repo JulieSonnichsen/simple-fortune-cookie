@@ -23,7 +23,7 @@ jobs:
     - name: Test frontend application
       run: |
         chmod +x test-app.sh
-        ./test-app.sh http://localhost:8080/
+        ./test-app.sh
    
 
     - name: Cleanup Deployment - Frontend
