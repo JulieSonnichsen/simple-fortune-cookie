@@ -1,0 +1,35 @@
+name: Deploy & Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy Test frontend
+      run: |
+        cd frontend
+        docker-compose up -d
+
+    - name: Wait for services to start
+      run: sleep 20
+
+    - name: Test frontend application
+      run: ./test-app.sh http://localhost:8080/
+   
+
+    - name: Cleanup Deployment - Frontend
+      run: |
+        cd frontend
+        docker-compose down
+
+    - name: Cleanup Deployment
+      run: |
+        docker-compose down
