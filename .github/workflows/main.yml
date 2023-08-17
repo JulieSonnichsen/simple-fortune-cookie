@@ -1,1 +1,32 @@
+name: Continuous Integration
 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '^1.16.15'  # Change this based on your project's Go version
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y gcc
+
+      - name: Run Tests in Frontend Folder
+        run: |
+          cd frontend
+          go test
