@@ -25,9 +25,6 @@ jobs:
         docker pull njako21/fortune-frontend:latest
         docker pull njako21/fortune-backend:latest
 
-    - name: Wait for services to pull
-      run: sleep 20
-
     - name: Deploy Test
       run: |
         docker compose up -d
