@@ -1,0 +1,32 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Build and push frontend
+      run: |
+        cd frontend
+        docker build -t njako21/fortune-frontend:latest -f Dockerfile .
+        docker push njako21/fortune-frontend:latest
+
+    - name: Build and push backend
+      run: |
+        cd backend
+        docker build -t njako21/fortune-backend:latest -f Dockerfile .
+        docker push njako21/fortune-backend:latest
