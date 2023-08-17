@@ -13,9 +13,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Deploy Test frontend
+    - name: Deploy Test
       run: |
-        cd frontend
         docker-compose up -d
 
     - name: Wait for services to start
@@ -29,5 +28,4 @@ jobs:
 
     - name: Cleanup Deployment - Frontend
       run: |
-        cd frontend
         docker-compose down
