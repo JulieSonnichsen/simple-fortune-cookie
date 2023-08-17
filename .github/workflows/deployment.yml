@@ -29,7 +29,3 @@ jobs:
       run: |
         cd frontend
         docker-compose down
-
-    - name: Cleanup Deployment
-      run: |
-        docker-compose down
