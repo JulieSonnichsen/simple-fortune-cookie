@@ -21,10 +21,12 @@ jobs:
 
     - name: Build and push frontend
       run: |
-        docker build -t ***/fortune-frontend:latest -f frontend/Dockerfile .
+        cd frontend
+        docker build -t njako21/fortune-frontend:latest -f Dockerfile .
         docker push njako21/fortune-frontend:latest
 
     - name: Build and push backend
       run: |
-        docker build -t njako21/fortune-backend:latest -f backend/Dockerfile .
+        cd backend
+        docker build -t njako21/fortune-backend:latest -f Dockerfile .
         docker push njako21/fortune-backend:latest
