@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - main
+      - deployment-config
 
 jobs:
   build-and-test:
