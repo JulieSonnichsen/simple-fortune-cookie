@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - deployment-config
   pull_request:
     branches:
       - main
@@ -36,4 +37,4 @@ jobs:
         run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
             
       - name: kube commmands
-        run: kubectl --kubeconfig kubeconfig apply -f frontend-deployment.yaml -f frontend-service.yaml -f backend-deployment.yaml -f backend-service.yaml
+        run: kubectl --kubeconfig kubeconfig apply -f frontend/orchestration/frontend-deployment.yaml -f frontend/orchestration/frontend-service.yaml -f backend/orchestration/backend-deployment.yaml -f backend/orchestration/backend-service.yaml
