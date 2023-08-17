@@ -15,7 +15,7 @@ jobs:
 
     - name: Deploy Test
       run: |
-        docker-compose up -d
+        docker compose up -d
 
     - name: Wait for services to start
       run: sleep 20
@@ -28,4 +28,4 @@ jobs:
 
     - name: Cleanup Deployment - Frontend
       run: |
-        docker-compose down
+        docker compose down
