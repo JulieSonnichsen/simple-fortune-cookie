@@ -4,7 +4,15 @@ on:
   push:
     branches:
       - main
-      - deployment-config
+      - deployment
+      - staging
+      - production
+  pull_request:
+    branches:
+      - main
+      - deployment
+      - staging
+      - production
 
 jobs:
   deploy-and-test:
