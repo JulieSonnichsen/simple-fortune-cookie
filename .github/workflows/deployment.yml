@@ -1,17 +1,10 @@
 name: Deploy & Test
 
 on:
-  push:
-    branches:
-      - main
-      - deployment
-      - staging
-      - production
   pull_request:
     branches:
       - main
       - deployment
-      - staging
       - production
 
 jobs:
