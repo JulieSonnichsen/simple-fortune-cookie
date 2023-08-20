@@ -8,6 +8,12 @@ on:
       - deployment
       - staging
       - production
+  pull_request:
+    branches:
+      - main
+      - deployment
+      - staging
+      - production
 
 jobs:
   build-and-test:
