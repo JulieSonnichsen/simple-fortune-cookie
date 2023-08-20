@@ -38,10 +38,10 @@ jobs:
         chmod +x test-app.sh
         ./test-app.sh
 
-    - name: Test frontend application
+    - name: Test backend application
       run: |
         chmod +x backend-running-test.sh
-        ./test-backend-running-test.sh
+        ./backend-running-test.sh
    
     - name: Cleanup Deployment
       run: |
