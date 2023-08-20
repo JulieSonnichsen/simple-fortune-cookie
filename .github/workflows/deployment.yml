@@ -42,6 +42,7 @@ jobs:
       run: |
         chmod +x backend-running-test.sh
         ./backend-running-test.sh
+        
    
     - name: Cleanup Deployment
       run: |
