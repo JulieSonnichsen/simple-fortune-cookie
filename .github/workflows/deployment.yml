@@ -1,6 +1,11 @@
 name: Deploy & Test
 
 on:
+  push:
+    branches:
+      - main
+      - deployment
+      - production
   pull_request:
     branches:
       - main
@@ -42,6 +47,7 @@ jobs:
       run: |
         chmod +x backend-running-test.sh
         ./backend-running-test.sh
+        
    
     - name: Cleanup Deployment
       run: |
